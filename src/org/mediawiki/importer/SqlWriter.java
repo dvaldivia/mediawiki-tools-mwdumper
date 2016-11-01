@@ -308,6 +308,8 @@ public abstract class SqlWriter implements DumpWriter {
 						break;
 					case '"':
 					case '\'':
+						sql.append('\'').append('\'');
+						break;
 					case '\\':
 						sql.append('\\');
 						// fall through
