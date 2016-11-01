@@ -60,7 +60,7 @@ public abstract class SqlWriter implements DumpWriter {
 			return new SqlLiteral("RAND()");
 		}
 		public boolean supportsMultiRowInsert() {
-			return true;
+			return false;
 		}
 		public String getTextTable() {
 			return "text";
