@@ -54,10 +54,10 @@ public abstract class SqlWriter implements DumpWriter {
 		// UTC_TIMESTAMP() is new in MySQL 4.1 or 5.0, so using this
 		// godawful hack found in documentation comments:
 		public SqlLiteral getCurrentTime() {
-			return new SqlLiteral("DATE_ADD('1970-01-01', INTERVAL UNIX_TIMESTAMP() SECOND)+0");
+			return new SqlLiteral("dateof(now())");
 		}
 		public SqlLiteral getRandom() {
-			return new SqlLiteral("RAND()");
+			return new SqlLiteral("'random'");
 		}
 		public boolean supportsMultiRowInsert() {
 			return false;
@@ -103,7 +103,7 @@ public abstract class SqlWriter implements DumpWriter {
 	}
 
 	private SqlStream stream;
-	private String tablePrefix = "";
+	private String tablePrefix = "wiki.";
 
 	protected static final Integer ONE = new Integer(1);
 	protected static final Integer ZERO = new Integer(0);
