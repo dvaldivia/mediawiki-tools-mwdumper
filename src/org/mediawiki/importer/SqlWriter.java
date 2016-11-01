@@ -127,7 +127,7 @@ public abstract class SqlWriter implements DumpWriter {
 	public void writeStartWiki(Wikiinfo info) throws IOException {
 		stream.writeComment("-- MediaWiki XML dump converted to SQL by mwdumper");
 		stream.writeComment("-- Lang: " + commentSafe(info.Lang));
-		stream.writeStatement("BEGIN");
+		stream.writeStatement("");
 
 		String prologue = traits.getWikiPrologue();
 		if (prologue != null)
@@ -140,8 +140,8 @@ public abstract class SqlWriter implements DumpWriter {
 		String epilogue = traits.getWikiEpilogue();
 		if (epilogue != null)
 			stream.writeStatement(epilogue);
-		stream.writeStatement("COMMIT");
-		stream.writeComment("-- DONE");
+		stream.writeStatement("");
+		stream.writeComment("");
 	}
 
 	public void writeSiteinfo(Siteinfo info) throws IOException {
