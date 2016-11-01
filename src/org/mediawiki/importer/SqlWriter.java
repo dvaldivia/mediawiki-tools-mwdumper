@@ -366,8 +366,8 @@ public abstract class SqlWriter implements DumpWriter {
 		pageCount++;
 		if (pageCount % commitInterval == 0) {
 			flushInsertBuffers();
-			stream.writeStatement("COMMIT");
-			stream.writeStatement("BEGIN");
+			stream.writeStatement("");
+			stream.writeStatement("");
 		}
 	}
 }
